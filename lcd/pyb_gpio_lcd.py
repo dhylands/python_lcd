@@ -92,11 +92,12 @@ class GpioLcd(LcdApi):
         delay(1)
         self.hal_write_init_nibble(self.LCD_FUNCTION_RESET)
         delay(1)
-        # Put LCD into 4 bit mode
-        self.hal_write_init_nibble(self.LCD_FUNCTION)
+        cmd = self.LCD_FUNCTION
+        if not self._4bit:
+            cmd |= self.LCD_FUNCTION_8BIT
+        self.hal_write_init_nibble(cmd)
         delay(1)
         LcdApi.__init__(self, num_lines, num_columns)
-        cmd = self.LCD_FUNCTION
         if num_lines > 1:
             cmd |= self.LCD_FUNCTION_2LINES
         self.hal_write_command(cmd)
