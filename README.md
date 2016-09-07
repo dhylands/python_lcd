@@ -3,7 +3,12 @@ lcd and i2c_lcd
 
 Python code for talking to character based LCDs.
 
-The I2c_Lcd class allows for talking to i2c based LCDs.
+The I2c_Lcd class allows for talking to i2c based LCDs. There are also variants
+of the code for MicroPython. All of the files which start with pyb were tested
+on the pyboard.
+
+The files which end in _test.py are examples which show how the corresponding
+file is used.
 
 This was tested on a BeagleBone Black using a 2 x 16 LCD with an i2c
 module similar to [this one](http://arduino-info.wikispaces.com/LCD-Blue-I2C).
