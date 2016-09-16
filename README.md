@@ -7,10 +7,26 @@ The I2c_Lcd class allows for talking to i2c based LCDs. There are also variants
 of the code for MicroPython. All of the files which start with pyb were tested
 on the pyboard.
 
+Files
+=====
+
+| File                          | Description                           |
+| -----                         | -----------                           |
+| lcd.py                        | Core logic                            |
+| i2c_lcd.pyb                   | Linux I2C HAL                         |
+| pyb_gpio_lcd.py               | Pyboard GPIO HAL                      |
+| pyb_gpio_lcd_test8.py         | Pyboard test using 8-bit GPIO         |
+| pyb_gpio_lcd_test.py          | Pyboard test using 4-bit GPIO         |
+| pyb_i2c_adafruit_lcd.py       | Pyboard I2C HAL for Adafruit backpack |
+| pyb_i2c_adafruit_lcd_test.py  | Test for Adafruit backpack            |
+| pyb_i2c_lcd.py                | Pyboard I2C HAL for PCF8574 backpack  |
+| pyb_i2c_lcd_test.py           | Test for PCF8574 backpack             |
+
+
 The files which end in _test.py are examples which show how the corresponding
 file is used.
 
-This was tested on a BeagleBone Black using a 2 x 16 LCD with an i2c
+i2c_lcd.py was tested on a BeagleBone Black using a 2 x 16 LCD with an i2c
 module similar to [this one](http://arduino-info.wikispaces.com/LCD-Blue-I2C).
 
 This code was adapted from some C code that I had written previously for
