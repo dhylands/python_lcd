@@ -21,6 +21,8 @@ Files
 | pyb_i2c_adafruit_lcd_test.py  | Test for Adafruit backpack            |
 | pyb_i2c_lcd.py                | Pyboard I2C HAL for PCF8574 backpack  |
 | pyb_i2c_lcd_test.py           | Test for PCF8574 backpack             |
+| nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                      |
+| nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO         |
 
 
 The files which end in _test.py are examples which show how the corresponding
