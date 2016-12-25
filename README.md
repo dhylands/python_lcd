@@ -89,3 +89,9 @@ Some examples of other level shifters which could be used:
 * [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](http://www.adafruit.com/products/757)
 * [8-channel Bi-directional Logic Level Converter - TXB0108](http://www.adafruit.com/products/395)
 
+I found a circuit mentioned in [this Google+ post](https://plus.google.com/101619328411109842819/posts/5dPjmvRwhXH)
+and thought I would include it here, since it's related to the LCDs these drivers interface with.
+![LCD Schematic](/simplest-lcd-supply.png)
+
+The circuit allows for digitally controlling the contrast via PWM and also controlling
+the backlight brightness via PWM.
