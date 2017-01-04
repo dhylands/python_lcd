@@ -1,4 +1,5 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via PCF8574 on I2C.
+   This was tested with: https://www.wemos.cc/product/d1-mini.html"""
 
 from time import sleep_ms, ticks_ms
 from machine import I2C, Pin

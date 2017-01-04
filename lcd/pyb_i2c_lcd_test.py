@@ -1,4 +1,4 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
 from pyb import I2C, delay, millis
 from lcd_api import LcdApi

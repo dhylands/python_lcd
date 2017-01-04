@@ -1,4 +1,4 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
 from lcd_api import LcdApi
 import smbus
@@ -16,7 +16,7 @@ SHIFT_DATA = 4
 
 
 class I2cLcd(LcdApi):
-    """Implements a character based lcd connected via PCF8574 on i2c."""
+    """Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
     def __init__(self, port, i2c_addr, num_lines, num_columns):
         self.port = port

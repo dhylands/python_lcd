@@ -1,4 +1,4 @@
-"""Implements a character based lcd connected general purpose IO pins."""
+"""Implements a HD44780 character LCD connected via NodeMCU GPIO pins."""
 
 from machine import Pin
 from utime import sleep, ticks_ms
@@ -28,7 +28,7 @@ from nodemcu_gpio_lcd import GpioLcd
 # The Contrast line (pin 3) typically connects to the center tap of a
 # 10K potentiometer, and the other 2 legs of the 10K potentiometer are
 # connected to pins 1 and 2 (Ground and VDD)
-#
+
 
 def test_main():
     """Test function for verifying basic functionality."""

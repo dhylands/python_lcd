@@ -1,4 +1,4 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via MCP23008 on I2C."""
 
 from pyb import I2C, delay, millis
 from pyb_i2c_adafruit_lcd import I2cLcd
@@ -9,7 +9,6 @@ def test_main():
     """Test function for verifying basic functionality."""
     print("Running test_main")
     i2c = I2C(1, I2C.MASTER)
-
     lcd = I2cLcd(i2c, DEFAULT_I2C_ADDR, 4, 20)
     lcd.putstr("It Works!\nSecond Line\nThird Line\nFourth Line")
     delay(3000)
@@ -43,4 +42,3 @@ def test_main():
 
 #if __name__ == "__main__":
 test_main()
-

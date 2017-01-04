@@ -1,4 +1,4 @@
-"""Implements a character based lcd connected via MCP2300x on i2c.
+"""Implements a HD44780 character LCD connected via MCP23008 on I2C.
    This was tested with: https://www.adafruit.com/product/292"""
 
 from lcd_api import LcdApi
@@ -37,8 +37,9 @@ MASK_E = 0x04
 SHIFT_DATA = 3
 SHIFT_BACKLIGHT = 7
 
+
 class I2cLcd(LcdApi):
-    """Implements a character based lcd connected via MCP23008 on i2c."""
+    """Implements a HD44780 character LCD connected via MCP23008 on I2C."""
 
     def __init__(self, i2c, i2c_addr, num_lines, num_columns):
         self.i2c = i2c

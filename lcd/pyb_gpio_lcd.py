@@ -1,11 +1,11 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via pyboard GPIO pins."""
 
 from lcd_api import LcdApi
 from pyb import Pin, delay, udelay
 
 
 class GpioLcd(LcdApi):
-    """Implements a character based lcd connected via GPIO pins."""
+    """Implements a HD44780 character LCD connected via pyboard GPIO pins."""
 
     def __init__(self, rs_pin, enable_pin, d0_pin=None, d1_pin=None,
                  d2_pin=None, d3_pin=None, d4_pin=None, d5_pin=None,

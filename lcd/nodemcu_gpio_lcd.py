@@ -1,9 +1,12 @@
+"""Implements a HD44780 character LCD connected via NodeMCU GPIO pins."""
+
 from lcd_api import LcdApi
 from machine import Pin
 from utime import sleep_ms, sleep_us
 
+
 class GpioLcd(LcdApi):
-    """Implements a character based lcd connected via GPIO pins."""
+    """Implements a HD44780 character LCD connected via NodeMCU GPIO pins."""
 
     def __init__(self, rs_pin, enable_pin, d0_pin=None, d1_pin=None,
                  d2_pin=None, d3_pin=None, d4_pin=None, d5_pin=None,
