@@ -43,7 +43,7 @@ class I2cLcd(LcdApi):
         """Writes an initialization nibble to the LCD.
 
 
-        This particular function is only used during intiialization.
+        This particular function is only used during initialization.
         """
         byte = ((nibble >> 4) & 0x0f) << SHIFT_DATA
         self.i2c.writeto(self.i2c_addr, bytearray([byte | MASK_E]))

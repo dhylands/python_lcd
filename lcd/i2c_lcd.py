@@ -43,7 +43,7 @@ class I2cLcd(LcdApi):
     def hal_write_init_nibble(self, nibble):
         """Writes an initialization nibble to the LCD.
 
-        This particular function is only used during intiialization.
+        This particular function is only used during initialization.
         """
         byte = ((nibble >> 4) & 0x0f) << SHIFT_DATA
         self.bus.write_byte(self.i2c_addr, byte | MASK_E)

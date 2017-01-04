@@ -9,8 +9,8 @@ class GpioLcd(LcdApi):
                  d2_pin=None, d3_pin=None, d4_pin=None, d5_pin=None,
                  d6_pin=None, d7_pin=None, rw_pin=None, backlight_pin=None,
                  num_lines=2, num_columns=16):
-        """Constructs the GpioLcd object. All of the arguments must pyb.Pin
-        objects which ddescribe which pin the given line from the LCD is
+        """Constructs the GpioLcd object. All of the arguments must be Pin
+        objects which describe which pin the given line from the LCD is
         connected to.
 
         When used in 4-bit mode, only D4, D5, D6, and D7 are physically
@@ -19,7 +19,7 @@ class GpioLcd(LcdApi):
         if you had actually called:
         GpioLcd(rs, enable, d4=D4, d5=D5, d6=D6, d7=D7)
 
-        The enable 8-bit mode, you need pass d0 thru d7.
+        The enable 8-bit mode, you need pass d0 through d7.
 
         The rw pin isn't used by this library, but if you specify it, then
         it will be set low.
@@ -111,7 +111,7 @@ class GpioLcd(LcdApi):
     def hal_write_init_nibble(self, nibble):
         """Writes an initialization nibble to the LCD.
 
-        This particular function is only used during intiialization.
+        This particular function is only used during initialization.
         """
         self.hal_write_4bits(nibble >> 4)
 

@@ -47,7 +47,7 @@ class I2cLcd(LcdApi):
         # Send IODIR address, set IODIR to all inputs, init all other registers 0
         self.i2c.send(b'\x00\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00', self.i2c_addr)
 
-        # Set pins GP1 thru GP7 to output, leave GP0 as input
+        # Set pins GP1 through GP7 to output, leave GP0 as input
         self.i2c.mem_write(0x01, self.i2c_addr, IODIR)
 
         # Send reset 3 times
@@ -69,7 +69,7 @@ class I2cLcd(LcdApi):
     def hal_write_init_nibble(self, nibble):
         """Writes an initialization nibble to the LCD.
 
-        This particular function is only used during intiialization.
+        This particular function is only used during initialization.
         """
         byte = ((nibble >> 4) & 0x0f) << SHIFT_DATA
         self.i2c.mem_write(byte | MASK_E, self.i2c_addr, GPIO)
@@ -113,4 +113,3 @@ class I2cLcd(LcdApi):
                 ((data & 0x0f) << SHIFT_DATA))
         self.i2c.mem_write(byte | MASK_E, self.i2c_addr, GPIO)
         self.i2c.mem_write(byte, self.i2c_addr, GPIO)
-
