@@ -11,7 +11,7 @@ def test_main():
     """Test function for verifying basic functionality."""
     print("Running test_main")
     i2c = I2C(2, I2C.MASTER)
-    lcd = I2cLcd(i2c, 0x27, 2, 16)
+    lcd = I2cLcd(i2c, DEFAULT_I2C_ADDR, 2, 16)
     lcd.putstr("It Works!\nSecond Line")
     delay(3000)
     lcd.clear()
@@ -44,4 +44,3 @@ def test_main():
 
 #if __name__ == "__main__":
 test_main()
-
