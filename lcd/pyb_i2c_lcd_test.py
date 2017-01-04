@@ -3,6 +3,7 @@
 from pyb import I2C, delay, millis
 from lcd_api import LcdApi
 
+# The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
 
 def test_main():

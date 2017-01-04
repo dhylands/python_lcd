@@ -5,6 +5,7 @@ from lcd_api import LcdApi
 from pyb import I2C
 from pyb import delay
 
+# The MCP23008 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x20
 
 # MCP23008 Registers

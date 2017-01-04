@@ -4,6 +4,7 @@ from lcd_api import LcdApi
 import smbus
 import time
 
+# The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
 
 # Defines shifts or masks for the various LCD line attached to the PCF8574

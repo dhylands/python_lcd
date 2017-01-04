@@ -3,6 +3,7 @@
 from pyb import I2C, delay, millis
 from pyb_i2c_adafruit_lcd import I2cLcd
 
+# The MCP23008 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x20
 
 def test_main():

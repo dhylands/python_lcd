@@ -3,6 +3,7 @@
 from i2c_lcd import I2cLcd
 import time
 
+# The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
 
 def test_main():
