@@ -1,7 +1,6 @@
 """Implements a character based lcd connected via PCF8574 on i2c."""
 
-from pyb import Pin
-from pyb import delay, millis
+from pyb import Pin, delay, millis
 from pyb_gpio_lcd import GpioLcd
 
 # Wiring used for this example:

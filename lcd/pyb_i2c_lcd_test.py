@@ -1,9 +1,7 @@
 """Implements a character based lcd connected via PCF8574 on i2c."""
 
-from pyb import I2C
-from pyb import delay, millis
+from pyb import I2C, delay, millis
 from lcd_api import LcdApi
-from pyb_i2c_lcd import I2cLcd
 
 DEFAULT_I2C_ADDR = 0x27
 
