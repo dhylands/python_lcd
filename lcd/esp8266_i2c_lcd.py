@@ -1,6 +1,6 @@
 """Implements a character based lcd connected via PCF8574 on I2C."""
 
-from lcd import LcdApi
+from lcdapi import LcdApi
 from machine import I2C
 from time import sleep_ms
 
