@@ -1,7 +1,7 @@
 """Provides an API for talking to HD44780 style character LCDs."""
 
 
-class LcdApi(object):
+class LcdApi:
     """Implements the API for talking with n LCD. This class only knows what
     commands to send to the LCD, and not how t get them to the LCD.
 

@@ -1,6 +1,6 @@
 """Implements a character based lcd connected via PCF8574 on i2c."""
 
-from lcd import LcdApi
+from lcd_api import LcdApi
 from pyb import Pin
 from pyb import delay, udelay
 

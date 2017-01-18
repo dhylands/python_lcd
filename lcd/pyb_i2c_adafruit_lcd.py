@@ -1,7 +1,7 @@
 """Implements a character based lcd connected via MCP2300x on i2c.
    This was tested with: https://www.adafruit.com/product/292"""
 
-from lcd import LcdApi
+from lcd_api import LcdApi
 from pyb import I2C
 from pyb import delay
 

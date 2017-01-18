@@ -1,4 +1,4 @@
-from lcd import LcdApi
+from lcd_api import LcdApi
 from machine import Pin
 from utime import sleep_ms, sleep_us
 
