@@ -10,19 +10,20 @@ on the pyboard.
 Files
 =====
 
-| File                          | Description                           |
-| -----                         | -----------                           |
-| lcd.py                        | Core logic                            |
-| i2c_lcd.pyb                   | Linux I2C HAL                         |
-| pyb_gpio_lcd.py               | Pyboard GPIO HAL                      |
-| pyb_gpio_lcd_test8.py         | Pyboard test using 8-bit GPIO         |
-| pyb_gpio_lcd_test.py          | Pyboard test using 4-bit GPIO         |
-| pyb_i2c_adafruit_lcd.py       | Pyboard I2C HAL for Adafruit backpack |
-| pyb_i2c_adafruit_lcd_test.py  | Test for Adafruit backpack            |
-| pyb_i2c_lcd.py                | Pyboard I2C HAL for PCF8574 backpack  |
-| pyb_i2c_lcd_test.py           | Test for PCF8574 backpack             |
-| nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                      |
-| nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO         |
+| File                          | Description                               |
+| -----                         | -----------                               |
+| lcd.py                        | Core logic                                |
+| i2c_lcd.pyb                   | Linux I2C HAL                             |
+| pyb_gpio_lcd.py               | Pyboard GPIO HAL                          |
+| pyb_gpio_lcd_test8.py         | Pyboard test using 8-bit GPIO             |
+| pyb_gpio_lcd_test.py          | Pyboard test using 4-bit GPIO             |
+| pyb_i2c_adafruit_lcd.py       | Pyboard I2C HAL for Adafruit backpack     |
+| pyb_i2c_adafruit_lcd_test.py  | Test for Adafruit backpack                |
+| pyb_i2c_lcd.py                | Pyboard I2C HAL for PCF8574 backpack      |
+| pyb_i2c_lcd_test.py           | Test for PCF8574 backpack                 |
+| nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                          |
+| nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO             |
+| pycom_i2c_lcd.py              | Pycom boards I2C HAL for PCF8574 backpack |
 
 
 The files which end in _test.py are examples which show how the corresponding
