@@ -1,5 +1,8 @@
 """Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
+# The following import was needed on my OpenMV board
+from lcd_api import LcdApi
+
 from pyb import I2C, delay, millis
 from pyb_i2c_lcd import I2cLcd
 
