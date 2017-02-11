@@ -1,9 +1,10 @@
-"""Provides an API for talking to HD44780 style character LCDs."""
+"""Provides an API for talking to HD44780 compatible character LCDs."""
 
 
 class LcdApi:
-    """Implements the API for talking with n LCD. This class only knows what
-    commands to send to the LCD, and not how t get them to the LCD.
+    """Implements the API for talking with HD44780 compatible character LCDs.
+    This class only knows what commands to send to the LCD, and not how to get
+    them to the LCD.
 
     It is expected that a derived class will implement the hal_xxx functions.
     """
@@ -65,7 +66,6 @@ class LcdApi:
     def clear(self):
         """Clears the LCD display and moves the cursor to the top left
         corner.
-
         """
         self.hal_write_command(self.LCD_CLR)
         self.hal_write_command(self.LCD_HOME)
@@ -131,7 +131,7 @@ class LcdApi:
         self.hal_write_command(self.LCD_DDRAM | addr)
 
     def putchar(self, char):
-        """Writes the indicated charcter to the LCD at the current cursor
+        """Writes the indicated character to the LCD at the current cursor
         position, and advances the cursor by one position.
         """
         if self.cursor_x >= self.num_columns or char == '\n':
@@ -163,7 +163,6 @@ class LcdApi:
 
         If desired, a derived HAL class will implement this function.
         """
-
         pass
 
     def hal_write_command(self, cmd):

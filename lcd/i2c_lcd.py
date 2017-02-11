@@ -1,9 +1,10 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
 from lcd_api import LcdApi
 import smbus
 import time
 
+# The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
 
 # Defines shifts or masks for the various LCD line attached to the PCF8574
@@ -16,7 +17,7 @@ SHIFT_DATA = 4
 
 
 class I2cLcd(LcdApi):
-    """Implements a character based lcd connected via PCF8574 on i2c."""
+    """Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
     def __init__(self, port, i2c_addr, num_lines, num_columns):
         self.port = port
@@ -43,7 +44,7 @@ class I2cLcd(LcdApi):
     def hal_write_init_nibble(self, nibble):
         """Writes an initialization nibble to the LCD.
 
-        This particular function is only used during intiialization.
+        This particular function is only used during initialization.
         """
         byte = ((nibble >> 4) & 0x0f) << SHIFT_DATA
         self.bus.write_byte(self.i2c_addr, byte | MASK_E)
@@ -87,40 +88,3 @@ class I2cLcd(LcdApi):
                 ((data & 0x0f) << SHIFT_DATA))
         self.bus.write_byte(self.i2c_addr, byte | MASK_E)
         self.bus.write_byte(self.i2c_addr, byte)
-
-def test_main():
-    """Test function for verifying basic functionality."""
-    lcd = I2cLcd(1, 0x27, 2, 16)
-    lcd.putstr("It Works!\nSecond Line")
-    time.sleep(3)
-    lcd.clear()
-    count = 0
-    while True:
-        lcd.move_to(0, 0)
-        lcd.putstr(time.strftime('%b %d %Y\n%H:%M:%S', time.localtime()))
-        time.sleep(1)
-        count += 1
-        if count % 10 == 3:
-            print "Turning backlight off"
-            lcd.backlight_off()
-        if count % 10 == 4:
-            print "Turning backlight on"
-            lcd.backlight_on()
-        if count % 10 == 5:
-            print "Turning display off"
-            lcd.display_off()
-        if count % 10 == 6:
-            print "Turning display on"
-            lcd.display_on()
-        if count % 10 == 7:
-            print "Turning display & backlight off"
-            lcd.backlight_off()
-            lcd.display_off()
-        if count % 10 == 8:
-            print "Turning display & backlight on"
-            lcd.backlight_on()
-            lcd.display_on()
-
-if __name__ == "__main__":
-    test_main()
-

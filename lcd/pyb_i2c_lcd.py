@@ -1,9 +1,9 @@
-"""Implements a character based lcd connected via PCF8574 on i2c."""
+"""Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
 from lcd_api import LcdApi
-from pyb import I2C
-from pyb import delay
+from pyb import I2C, delay
 
+# The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
 
 # Defines shifts or masks for the various LCD line attached to the PCF8574
@@ -16,7 +16,7 @@ SHIFT_DATA = 4
 
 
 class I2cLcd(LcdApi):
-    """Implements a character based lcd connected via PCF8574 on i2c."""
+    """Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
     def __init__(self, i2c, i2c_addr, num_lines, num_columns):
         self.i2c = i2c
@@ -41,7 +41,6 @@ class I2cLcd(LcdApi):
 
     def hal_write_init_nibble(self, nibble):
         """Writes an initialization nibble to the LCD.
-
 
         This particular function is only used during intiialization.
         """
@@ -87,4 +86,3 @@ class I2cLcd(LcdApi):
                 ((data & 0x0f) << SHIFT_DATA))
         self.i2c.send(byte | MASK_E, self.i2c_addr)
         self.i2c.send(byte, self.i2c_addr)
-
