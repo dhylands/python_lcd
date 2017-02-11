@@ -1,7 +1,7 @@
 """Implements a HD44780 character LCD connected via PCF8574 on I2C."""
 
 from pyb import I2C, delay, millis
-from lcd_api import LcdApi
+from pyb_i2c_lcd import I2cLcd
 
 # The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
