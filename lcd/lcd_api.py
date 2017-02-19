@@ -134,15 +134,15 @@ class LcdApi:
         """Writes the indicated character to the LCD at the current cursor
         position, and advances the cursor by one position.
         """
+        if char != '\n':
+            self.hal_write_data(ord(char))
+            self.cursor_x += 1
         if self.cursor_x >= self.num_columns or char == '\n':
             self.cursor_x = 0
             self.cursor_y += 1
             if self.cursor_y >= self.num_lines:
                 self.cursor_y = 0
             self.move_to(self.cursor_x, self.cursor_y)
-        if char != '\n':
-            self.hal_write_data(ord(char))
-            self.cursor_x += 1
 
     def putstr(self, string):
         """Write the indicated string to the LCD at the current cursor
