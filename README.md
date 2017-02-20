@@ -43,6 +43,8 @@ Files
 | pyb_gpio_lcd_test.py          | Pyboard test using 4-bit GPIO         |
 | pyb_i2c_adafruit_lcd.py       | Pyboard MCP23008 I2C HAL              |
 | pyb_i2c_adafruit_lcd_test.py  | Pyboard test using Adafruit backpack  |
+| pyb_i2c_grove_rgb_lcd.py      | Pyboard Grove I2C RGB LCD HAL         |
+| pyb_i2c_grove_rgb_lcd_test.py | Pyboard test using Grove I2C RGB LCD  |
 | pyb_i2c_lcd.py                | Pyboard PCF8574 I2C HAL               |
 | pyb_i2c_lcd_test.py           | Pyboard test using PCF8574 backpack   |
 
