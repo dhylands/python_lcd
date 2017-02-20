@@ -1,4 +1,4 @@
-lcd and i2c_lcd
+lcd_api and i2c_lcd
 ===============
 
 Python code for talking to HD44780 compatible character based dot matrix LCDs.
@@ -33,9 +33,9 @@ Files
 | -----                         | -----------                           |
 | esp8266_i2c_lcd.py            | ESP8266 PCF8574 I2C HAL               |
 | esp8266_i2c_lcd_test.py       | ESP8266 test using PCF8574 backpack   |
-| i2c_lcd.pyb                   | Linux PCF8574 I2C HAL                 |
-| i2c_lcd_test.pyb              | Linux test using PCF8574 backpack     |
-| lcd.py                        | Core logic                            |
+| i2c_lcd.py                    | Linux PCF8574 I2C HAL                 |
+| i2c_lcd_test.py               | Linux test using PCF8574 backpack     |
+| lcd_api.py                    | Core logic                            |
 | nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                      |
 | nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO         |
 | pyb_gpio_lcd.py               | Pyboard GPIO HAL                      |
@@ -65,7 +65,7 @@ sudo pip install -e .
 
 And to test:
 ```bash
-sudo lcd/i2c_lcd.py
+sudo lcd/i2c_lcd_test.py
 ```
 
 Since my LCD was a 5v device, I used a level converter to convert from BBB's
