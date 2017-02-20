@@ -1,5 +1,6 @@
 """Provides an API for talking to HD44780 compatible character LCDs."""
 
+import time
 
 class LcdApi:
     """Implements the API for talking with HD44780 compatible character LCDs.
@@ -150,6 +151,18 @@ class LcdApi:
         """
         for char in string:
             self.putchar(char)
+
+    def custom_char(self, location, charmap):
+        """Write a character to one of the 8 CGRAM locations, available
+        as chr(0) through chr(7).
+        """
+        location &= 0x7
+        self.hal_write_command(self.LCD_CGRAM | (location << 3))
+        time.sleep_us(40)
+        for i in range(8):
+            self.hal_write_data(charmap[i])
+            time.sleep_us(40)
+        self.move_to(self.cursor_x, self.cursor_y)
 
     def hal_backlight_on(self):
         """Allows the hal layer to turn the backlight on.
