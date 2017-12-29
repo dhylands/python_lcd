@@ -3,6 +3,9 @@ lcd_api and i2c_lcd
 
 Python code for talking to HD44780 compatible character based dot matrix LCDs.
 
+This code is synchronous. Peter Hinch put together an async driver for
+the HD77480 over [here](https://github.com/peterhinch/micropython-async/tree/master/HD44780).
+
 You can communicate with the LCDs using either 4 or 8 GPIO pins.
 
 Alternatively, the I2C classes implement 8-bit GPIO expander boards
