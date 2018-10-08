@@ -52,7 +52,8 @@ Files
 | pyb_i2c_grove_rgb_lcd_test.py | Pyboard test using Grove I2C RGB LCD  |
 | pyb_i2c_lcd.py                | Pyboard PCF8574 I2C HAL               |
 | pyb_i2c_lcd_test.py           | Pyboard test using PCF8574 backpack   |
-
+| i2c_micropython_lcd.py        | Micropython I2C                       |
+| i2c_micropython_lcd_test.py   | Micropython I2C test using ESP32      |
 
 The files which end in **_test.py** are examples which show how the corresponding
 file is used.
