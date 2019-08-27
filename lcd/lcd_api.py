@@ -158,10 +158,10 @@ class LcdApi:
         """
         location &= 0x7
         self.hal_write_command(self.LCD_CGRAM | (location << 3))
-        time.sleep_us(40)
+        time.sleep(0.00004)
         for i in range(8):
             self.hal_write_data(charmap[i])
-            time.sleep_us(40)
+            time.sleep(0.00004)
         self.move_to(self.cursor_x, self.cursor_y)
 
     def hal_backlight_on(self):
