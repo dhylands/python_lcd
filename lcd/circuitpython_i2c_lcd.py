@@ -80,3 +80,8 @@ class I2cLcd(LcdApi):
         byte = (MASK_RS | (self.backlight << SHIFT_BACKLIGHT) | ((data & 0x0f) << SHIFT_DATA))
         self.i2c.writeto(self.i2c_addr, bytearray([byte | MASK_E]))
         self.i2c.writeto(self.i2c_addr, bytearray([byte]))
+		
+    def hal_sleep_us(self, data):
+        """Sleep for some time (given in microseconds)."""
+        sleep(float(data)/1e6)
+
