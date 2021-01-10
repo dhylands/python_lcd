@@ -158,6 +158,19 @@ class TestLcd(unittest.TestCase):
       b'Line 4 - 01234567890',
     ])
 
+  def test_simple_4x16(self):
+    lcd = LcdSim(4, 16)
+    lcd.putstr('Line 1\n')
+    lcd.putstr('Line 2\n')
+    lcd.putstr('Line 3\n')
+    lcd.putstr('Line 4\n')
+    self.assertEqual(lcd.display_lines(), [
+      b'Line 1          ',
+      b'Line 2          ',
+      b'Line 3          ',
+      b'Line 4          ',
+    ])
+
 
 if __name__ == '__main__':
     unittest.main()
