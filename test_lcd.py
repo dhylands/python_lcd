@@ -73,10 +73,7 @@ class LcdSim(LcdApi):
         if line & 1 != 0:
             addr += 0x40
         if line & 2 != 0:
-          if self.num_columns == 16:
-              addr += 0x10
-          else:
-              addr += 0x14
+          addr += self.num_columns
         return addr
 
     def dump_lines(self):
