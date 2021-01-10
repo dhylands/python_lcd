@@ -16,5 +16,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.7
+      - name: Install dependencies
+        run: ./install-deps.sh
       - name: Test with pytest
         run: ./run-tests.sh
