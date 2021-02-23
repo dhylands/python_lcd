@@ -50,6 +50,8 @@ The files containing **adafruit_lcd** were tested on an Adafruit
 | i2c_lcd.py                    | Linux PCF8574 I2C HAL                 |
 | i2c_lcd_test.py               | Linux test using PCF8574 backpack     |
 | lcd_api.py                    | Core logic                            |
+| machine_i2c_lcd.py            | Pyboard machine.I2C PCF8574 backpack  |
+| machine_i2c_lcd_test.py       | Test for machine.I2C PCF8574 backpack |
 | nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                      |
 | nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO         |
 | pyb_gpio_lcd.py               | Pyboard GPIO HAL                      |
