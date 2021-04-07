@@ -2,7 +2,6 @@
    This was tested with: https://www.wemos.cc/product/d1-mini.html"""
 
 from lcd_api import LcdApi
-from machine import I2C
 from time import sleep_ms
 
 # The PCF8574 has a jumper selectable address: 0x20 - 0x27
