@@ -11,7 +11,7 @@ DEFAULT_I2C_ADDR = 0x27
 def test_main():
     """Test function for verifying basic functionality."""
     print("Running test_main")
-    i2c = I2C(scl=Pin(5), sda=Pin(4), freq=400000)
+    i2c = I2C(scl=Pin(5), sda=Pin(4), freq=100000)
     lcd = I2cLcd(i2c, DEFAULT_I2C_ADDR, 2, 16)
     lcd.putstr("It Works!\nSecond Line")
     sleep_ms(3000)

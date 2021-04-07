@@ -15,7 +15,7 @@ def test_main():
     """Test function for verifying basic functionality."""
     print("Running test_main")
     # On the RPi Pico, I2C0 shows up on GP8 (sda) and GP9 (scl)
-    i2c = I2C(0, freq=400000)
+    i2c = I2C(0, freq=100000)
     lcd = I2cLcd(i2c, DEFAULT_I2C_ADDR, 2, 16)
     lcd.putstr("It Works!\nSecond Line")
     sleep_ms(3000)
