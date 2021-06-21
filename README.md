@@ -39,6 +39,10 @@ Files starting with **nodemcu_** were tested on a
 The files containing **adafruit_lcd** were tested on an Adafruit
 [I2C / SPI character LCD backpack](https://www.adafruit.com/product/292)
 
+## Tutorial
+
+Giuseppe Cassibba wrote up a [tutorial](https://peppe8o.com/using-i2c-lcd-display-with-raspberry-pi-pico-and-micropython) which demonstrates connecting an I2C LCD to a Raspberry Pi Pico.
+
 ## Files
 
 | File                          | Description                           |
