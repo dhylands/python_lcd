@@ -1,7 +1,7 @@
 """Implements a SeeedStudio Grove RGB LCD JHD1313M1 HD44780 compatible character LCD connected on I2C."""
 
 from lcd_api import LcdApi
-from pyb import I2C, delay
+from pyb import delay
 
 # No jumper selectable address
 DEFAULT_LCD_I2C_ADDR = 0x3e

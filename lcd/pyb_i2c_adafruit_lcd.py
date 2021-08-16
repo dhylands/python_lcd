@@ -2,7 +2,6 @@
    This was tested with: https://www.adafruit.com/product/292"""
 
 from lcd_api import LcdApi
-from pyb import I2C
 from pyb import delay
 
 # The MCP23008 has a jumper selectable address: 0x20 - 0x27

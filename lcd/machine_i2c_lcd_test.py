@@ -1,9 +1,12 @@
 """Implements a HD44780 character LCD connected via PCF8574 on I2C.
-   This was tested with: https://www.wemos.cc/product/d1-mini.html"""
+   This was tested using an I2C backpack similar to this one:
+   https://www.electroschematics.com/arduino-i2c-lcd-backpack-introductory-tutorial/
+   and using a Raspberry Pi Pico
+"""
 
 from time import sleep_ms, ticks_ms
 from machine import I2C, Pin
-from esp8266_i2c_lcd import I2cLcd
+from machine_i2c_lcd import I2cLcd
 
 # The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
@@ -11,7 +14,8 @@ DEFAULT_I2C_ADDR = 0x27
 def test_main():
     """Test function for verifying basic functionality."""
     print("Running test_main")
-    i2c = I2C(scl=Pin(5), sda=Pin(4), freq=100000)
+    # On the RPi Pico, I2C0 shows up on GP8 (sda) and GP9 (scl)
+    i2c = I2C(0, freq=100000)
     lcd = I2cLcd(i2c, DEFAULT_I2C_ADDR, 2, 16)
     lcd.putstr("It Works!\nSecond Line")
     sleep_ms(3000)

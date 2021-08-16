@@ -2,7 +2,8 @@
    This was tested with: https://www.wemos.cc/product/d1-mini.html"""
 
 from lcd_api import LcdApi
-from time import sleep_ms
+import busio
+from time import sleep
 
 # The PCF8574 has a jumper selectable address: 0x20 - 0x27
 DEFAULT_I2C_ADDR = 0x27
@@ -18,22 +19,21 @@ SHIFT_DATA = 4
 
 class I2cLcd(LcdApi):
     """Implements a HD44780 character LCD connected via PCF8574 on I2C."""
-
     def __init__(self, i2c, i2c_addr, num_lines, num_columns):
         self.i2c = i2c
         self.i2c_addr = i2c_addr
         self.i2c.writeto(self.i2c_addr, bytearray([0]))
-        sleep_ms(20)   # Allow LCD time to powerup
-        # Send reset 3 times
+        sleep(0.02)   # Allow LCD time to powerup
+		# Send reset 3 times
         self.hal_write_init_nibble(self.LCD_FUNCTION_RESET)
-        sleep_ms(5)    # need to delay at least 4.1 msec
+        sleep(0.005)    # need to delay at least 4.1 msec
         self.hal_write_init_nibble(self.LCD_FUNCTION_RESET)
-        sleep_ms(1)
+        sleep(0.001)
         self.hal_write_init_nibble(self.LCD_FUNCTION_RESET)
-        sleep_ms(1)
+        sleep(0.001)
         # Put LCD into 4 bit mode
         self.hal_write_init_nibble(self.LCD_FUNCTION)
-        sleep_ms(1)
+        sleep(0.001)
         LcdApi.__init__(self, num_lines, num_columns)
         cmd = self.LCD_FUNCTION
         if num_lines > 1:
@@ -70,7 +70,7 @@ class I2cLcd(LcdApi):
         self.i2c.writeto(self.i2c_addr, bytearray([byte]))
         if cmd <= 3:
             # The home and clear commands require a worst case delay of 4.1 msec
-            sleep_ms(5)
+            sleep(0.005)
 
     def hal_write_data(self, data):
         """Write data to the LCD."""
@@ -80,3 +80,7 @@ class I2cLcd(LcdApi):
         byte = (MASK_RS | (self.backlight << SHIFT_BACKLIGHT) | ((data & 0x0f) << SHIFT_DATA))
         self.i2c.writeto(self.i2c_addr, bytearray([byte | MASK_E]))
         self.i2c.writeto(self.i2c_addr, bytearray([byte]))
+
+    def hal_sleep_us(self, usecs):
+        """Sleep for some time (given in microseconds)."""
+        sleep(float(usecs)/1e6)

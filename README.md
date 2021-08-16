@@ -3,8 +3,18 @@ lcd_api and i2c_lcd
 
 Python code for talking to HD44780 compatible character based dot matrix LCDs.
 
+## Other ports
+
 This code is synchronous. Peter Hinch put together an async driver for
 the HD77480 over [here](https://github.com/peterhinch/micropython-async/tree/master/HD44780).
+
+This library is based off of a C version that I wrote, which can be found
+[here](https://github.com/dhylands/projects/blob/master/common/lcd-api.c)
+(also look for files in the same directory which start with lcd).
+
+Nic created a C# port of this library which can be found [here](https://github.com/OfItselfSo/CS_LCD).
+
+## Communicating with the LCD
 
 You can communicate with the LCDs using either 4 or 8 GPIO pins.
 
@@ -29,8 +39,11 @@ Files starting with **nodemcu_** were tested on a
 The files containing **adafruit_lcd** were tested on an Adafruit
 [I2C / SPI character LCD backpack](https://www.adafruit.com/product/292)
 
-Files
-=====
+## Tutorial
+
+Giuseppe Cassibba wrote up a [tutorial](https://peppe8o.com/using-i2c-lcd-display-with-raspberry-pi-pico-and-micropython) which demonstrates connecting an I2C LCD to a Raspberry Pi Pico.
+
+## Files
 
 | File                          | Description                           |
 | -----                         | -----------                           |
@@ -41,6 +54,8 @@ Files
 | i2c_lcd.py                    | Linux PCF8574 I2C HAL                 |
 | i2c_lcd_test.py               | Linux test using PCF8574 backpack     |
 | lcd_api.py                    | Core logic                            |
+| machine_i2c_lcd.py            | Pyboard machine.I2C PCF8574 backpack  |
+| machine_i2c_lcd_test.py       | Test for machine.I2C PCF8574 backpack |
 | nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                      |
 | nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO         |
 | pyb_gpio_lcd.py               | Pyboard GPIO HAL                      |
@@ -61,9 +76,6 @@ file is used.
 **i2c_lcd.py** was tested on a [BeagleBone Black](https://beagleboard.org/black) using a 2 x 16 LCD with an I2C
 module similar to [this one](http://arduino-info.wikispaces.com/LCD-Blue-I2C).
 
-This code was adapted from some C code that I had written previously for
-the AVR.
-
 To install on your BBB:
 ```bash
 git clone https://github.com/dhylands/python_lcd.git
@@ -83,15 +95,14 @@ I put together some
 [photos here] (https://picasaweb.google.com/115853040635737241756/PythonI2CLCD?authkey=Gv1sRgCLyZoJ3_uPjiXA)
 
 Coming from the BeagleBone Black the wire colors are:
-```
-Color  Pin   Name
------- ----- ------
-Black  P9-1  GND
-Red    P9-3  3.3v
-Orange P9-7  SYS_5V
-Yellow P9-19 SCL
-White  P9-20 SDA
-```
+
+| Color  | Pin   | Name   |
+| ------ | ----- | ------ |
+| Black  | P9-1  | GND    |
+| Red    | P9-3  | 3.3v   |
+| Orange | P9-7  | SYS_5V |
+| Yellow | P9-19 | SCL    |
+| White  | P9-20 | SDA    |
 
 The photo shows Orange connected to P9-5. I discovered that P9-7 is controlled
 by the onboard voltage regulators, so when you do a "sudo poweroff" then
@@ -99,14 +110,13 @@ SYS_5V drops to 0v when the BBB is powered off. P9-5 (VDD_5V) remains at
 5v after the BBB is powered off.
 
 And the colors going to the LCD are:
-```
-Color  Name
------- ----
-Black  GND
-Red    5v
-White  SDA
-Yellow SCL
-```
+
+| Color  | Name |
+| ------ | ---- |
+| Black  | GND  |
+| Red    | 5v   |
+| White  | SDA  |
+| Yellow | SCL  |
 
 I used a [SparkFun level shifter](https://www.sparkfun.com/products/8745)
 (this particular model is no longer available).
@@ -126,8 +136,7 @@ and thought I would include it here, since it's related to the LCDs these driver
 The circuit allows for digitally controlling the contrast via PWM and also controlling
 the backlight brightness via PWM.
 
-Custom characters
-=================
+## Custom characters
 
 The HD44780 displays come with 3 possible CGROM font sets. Japanese, European and Custom.
 Test which you have using:
@@ -224,12 +233,12 @@ cross = bytearray([0x00,0x1b,0x0e,0x04,0x0e,0x1b,0x00,0x00])
 retarrow = bytearray([0x01,0x01,0x05,0x09,0x1f,0x08,0x04,0x00])
 
 # battery icons
-battery0 = bytearray([0x0E,0x1B,0x11,0x11,0x11,0x11,0x11,0x1F]))  # 0% Empty
-battery1 = bytearray([0x0E,0x1B,0x11,0x11,0x11,0x11,0x1F,0x1F]))  # 16%
-battery2 = bytearray([0x0E,0x1B,0x11,0x11,0x11,0x1F,0x1F,0x1F]))  # 33%
-battery3 = bytearray([0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x1F]))  # 50%
-battery4 = bytearray([0x0E,0x1B,0x11,0x1F,0x1F,0x1F,0x1F,0x1F]))  # 66%
-battery5 = bytearray([0x0E,0x1B,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F]))  # 83%
-battery6 = bytearray([0x0E,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F]))  # 100% Full
-battery7 = bytearray([0x0E,0x1F,0x1B,0x1B,0x1B,0x1F,0x1B,0x1F]))  # ! Error
+battery0 = bytearray([0x0E,0x1B,0x11,0x11,0x11,0x11,0x11,0x1F])  # 0% Empty
+battery1 = bytearray([0x0E,0x1B,0x11,0x11,0x11,0x11,0x1F,0x1F])  # 16%
+battery2 = bytearray([0x0E,0x1B,0x11,0x11,0x11,0x1F,0x1F,0x1F])  # 33%
+battery3 = bytearray([0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x1F])  # 50%
+battery4 = bytearray([0x0E,0x1B,0x11,0x1F,0x1F,0x1F,0x1F,0x1F])  # 66%
+battery5 = bytearray([0x0E,0x1B,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F])  # 83%
+battery6 = bytearray([0x0E,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F])  # 100% Full
+battery7 = bytearray([0x0E,0x1F,0x1B,0x1B,0x1B,0x1F,0x1B,0x1F])  # ! Error
 ```
