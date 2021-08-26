@@ -39,6 +39,26 @@ Files starting with **nodemcu_** were tested on a
 The files containing **adafruit_lcd** were tested on an Adafruit
 [I2C / SPI character LCD backpack](https://www.adafruit.com/product/292)
 
+## Installing CPython
+
+### Cpython 3.x
+
+    # python smbus needs dev headers
+    sudo apt update
+    sudo apt install python3-dev
+    python -m pip install smbus  # optional, good test before installing library
+    python -m pip install -e .
+
+
+### Cpython 2.7
+
+    # python smbus needs dev headers
+    sudo apt update
+    sudo apt install python2-dev
+    python -m pip install smbus  # optional, good test before installing library
+    python -m pip install -e .
+
+
 ## Tutorial
 
 Giuseppe Cassibba wrote up a [tutorial](https://peppe8o.com/using-i2c-lcd-display-with-raspberry-pi-pico-and-micropython) which demonstrates connecting an I2C LCD to a Raspberry Pi Pico.
