@@ -60,6 +60,10 @@ class I2cLcd(LcdApi):
         """Allows the hal layer to turn the backlight off."""
         self.bus.write_byte(self.i2c_addr, 0)
 
+    def hal_sleep_us(self, usecs):
+        """Sleep for some time (given in microseconds)."""
+        time.sleep(usecs / 1000000)
+
     def hal_write_command(self, cmd):
         """Writes a command to the LCD.
 
