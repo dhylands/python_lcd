@@ -203,6 +203,10 @@ class LcdApi:
         """
         raise NotImplementedError
 
+    # This is a default implementation of hal_sleep_us which is suitable
+    # for most micropython implementations. For platforms which don't
+    # support `time.sleep_us()` they should provide their own implementation
+    # of hal_sleep_us in their hal layer and it will be used instead.
     def hal_sleep_us(self, usecs):
         """Sleep for some time (given in microseconds)."""
         time.sleep_us(usecs)  # NOTE this is not part of Standard Python library, specific hal layers will need to override this
