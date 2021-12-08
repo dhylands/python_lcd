@@ -141,7 +141,6 @@ class LcdApi:
                 # self.implied_newline means we advanced due to a wraparound,
                 # so if we get a newline right after that we ignore it.
                 self.implied_newline = False
-                pass
             else:
                 self.cursor_x = self.num_columns
         else:
