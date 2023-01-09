@@ -6,7 +6,6 @@ class LcdApi:
     """Implements the API for talking with HD44780 compatible character LCDs.
     This class only knows what commands to send to the LCD, and not how to get
     them to the LCD.
-
     It is expected that a derived class will implement the hal_xxx functions.
     """
 
@@ -103,7 +102,6 @@ class LcdApi:
 
     def backlight_on(self):
         """Turns the backlight on.
-
         This isn't really an LCD command, but some modules have backlight
         controls, so this allows the hal to pass through the command.
         """
@@ -112,7 +110,6 @@ class LcdApi:
 
     def backlight_off(self):
         """Turns the backlight off.
-
         This isn't really an LCD command, but some modules have backlight
         controls, so this allows the hal to pass through the command.
         """
@@ -140,7 +137,7 @@ class LcdApi:
             if self.implied_newline:
                 # self.implied_newline means we advanced due to a wraparound,
                 # so if we get a newline right after that we ignore it.
-                self.implied_newline = False
+                pass
             else:
                 self.cursor_x = self.num_columns
         else:
@@ -150,9 +147,12 @@ class LcdApi:
             self.cursor_x = 0
             self.cursor_y += 1
             self.implied_newline = (char != '\n')
-        if self.cursor_y >= self.num_lines:
-            self.cursor_y = 0
-        self.move_to(self.cursor_x, self.cursor_y)
+            if self.cursor_y >= self.num_lines:
+                self.cursor_y = 0
+            self.move_to(0, self.cursor_y)
+        else:
+            self.implied_newline = False
+
 
     def putstr(self, string):
         """Write the indicated string to the LCD at the current cursor
@@ -175,21 +175,18 @@ class LcdApi:
 
     def hal_backlight_on(self):
         """Allows the hal layer to turn the backlight on.
-
         If desired, a derived HAL class will implement this function.
         """
         pass
 
     def hal_backlight_off(self):
         """Allows the hal layer to turn the backlight off.
-
         If desired, a derived HAL class will implement this function.
         """
         pass
 
     def hal_write_command(self, cmd):
         """Write a command to the LCD.
-
         It is expected that a derived HAL class will implement this
         function.
         """
@@ -197,7 +194,6 @@ class LcdApi:
 
     def hal_write_data(self, data):
         """Write data to the LCD.
-
         It is expected that a derived HAL class will implement this
         function.
         """
