@@ -6,7 +6,7 @@ Python code for talking to HD44780 compatible character based dot matrix LCDs.
 ## Other ports
 
 This code is synchronous. Peter Hinch put together an async driver for
-the HD77480 over [here](https://github.com/peterhinch/micropython-async/tree/master/HD44780).
+the HD77480 over [here](https://github.com/peterhinch/micropython-async/tree/master/v3/as_drivers/hd44780).
 
 This library is based off of a C version that I wrote, which can be found
 [here](https://github.com/dhylands/projects/blob/master/common/lcd-api.c)
@@ -65,28 +65,32 @@ Giuseppe Cassibba wrote up a [tutorial](https://peppe8o.com/using-i2c-lcd-displa
 
 ## Files
 
-| File                          | Description                           |
-| -----                         | -----------                           |
-| esp32_gpio_lcd.py             | ESP32 GPIO HAL                        |
-| esp32_gpio_lcd_test.py        | ESP32 test using 4-bit GPIO           |
-| esp8266_i2c_lcd.py            | ESP8266 PCF8574 I2C HAL               |
-| esp8266_i2c_lcd_test.py       | ESP8266 test using PCF8574 backpack   |
-| i2c_lcd.py                    | Linux PCF8574 I2C HAL                 |
-| i2c_lcd_test.py               | Linux test using PCF8574 backpack     |
-| lcd_api.py                    | Core logic                            |
-| machine_i2c_lcd.py            | Pyboard machine.I2C PCF8574 backpack  |
-| machine_i2c_lcd_test.py       | Test for machine.I2C PCF8574 backpack |
-| nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                      |
-| nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO         |
-| pyb_gpio_lcd.py               | Pyboard GPIO HAL                      |
-| pyb_gpio_lcd_test8.py         | Pyboard test using 8-bit GPIO         |
-| pyb_gpio_lcd_test.py          | Pyboard test using 4-bit GPIO         |
-| pyb_i2c_adafruit_lcd.py       | Pyboard MCP23008 I2C HAL              |
-| pyb_i2c_adafruit_lcd_test.py  | Pyboard test using Adafruit backpack  |
-| pyb_i2c_grove_rgb_lcd.py      | Pyboard Grove I2C RGB LCD HAL         |
-| pyb_i2c_grove_rgb_lcd_test.py | Pyboard test using Grove I2C RGB LCD  |
-| pyb_i2c_lcd.py                | Pyboard PCF8574 I2C HAL               |
-| pyb_i2c_lcd_test.py           | Pyboard test using PCF8574 backpack   |
+| File                          | Description                               |
+| -----                         | -----------                               |
+| circuitpython_i2c_lcd.py      | CircuitPython PCF8574 I2C backpack        |
+| circuitpython_i2c_lcd_test.py | CircuitPython test using PCF8574 backpack |
+| esp32_gpio_lcd.py             | ESP32 GPIO HAL                            |
+| esp32_gpio_lcd_test.py        | ESP32 test using 4-bit GPIO               |
+| esp8266_i2c_lcd.py            | ESP8266 PCF8574 I2C HAL                   |
+| esp8266_i2c_lcd_test.py       | ESP8266 test using PCF8574 backpack       |
+| i2c_lcd.py                    | Linux PCF8574 I2C HAL                     |
+| i2c_lcd_test.py               | Linux test using PCF8574 backpack         |
+| lcd_api.py                    | Core logic                                |
+| machine_i2c_lcd.py            | Pyboard machine.I2C PCF8574 backpack      |
+| machine_i2c_lcd_test.py       | Test for machine.I2C PCF8574 backpack     |
+| nodemcu_gpio_lcd.py           | NodeMCU GPIO HAL                          |
+| nodemcu_gpio_lcd_test.py      | NodeMCU test using 4-bit GPIO             |
+| onion_lcd_gpio.py             | Onion GPIO HAL                            |
+| onion_lcd_gpio.py             | Ontion test using 4 bit GPIO              |
+| pyb_gpio_lcd.py               | Pyboard GPIO HAL                          |
+| pyb_gpio_lcd_test8.py         | Pyboard test using 8-bit GPIO             |
+| pyb_gpio_lcd_test.py          | Pyboard test using 4-bit GPIO             |
+| pyb_i2c_adafruit_lcd.py       | Pyboard MCP23008 I2C HAL                  |
+| pyb_i2c_adafruit_lcd_test.py  | Pyboard test using Adafruit backpack      |
+| pyb_i2c_grove_rgb_lcd.py      | Pyboard Grove I2C RGB LCD HAL             |
+| pyb_i2c_grove_rgb_lcd_test.py | Pyboard test using Grove I2C RGB LCD      |
+| pyb_i2c_lcd.py                | Pyboard PCF8574 I2C HAL                   |
+| pyb_i2c_lcd_test.py           | Pyboard test using PCF8574 backpack       |
 
 
 The files which end in **_test.py** are examples which show how the corresponding
